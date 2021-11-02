@@ -1,5 +1,6 @@
 import React, { Fragment, useState } from "react";
-import { getRandomAnime } from "./helpers";
+import { AddCategory } from './components/AddCategory'
+
 
 const GiftExpertApp = () => {
   const [categories, setCategories] = useState([
@@ -8,24 +9,20 @@ const GiftExpertApp = () => {
     'The Seven Deadly Sins'
   ]);
 
-  const handleAdd = () => {
-    const name = getRandomAnime();
+  // const handleAdd = () => {
+  //   const name = getRandomAnime();
     
-    if (categories.indexOf(name) === -1) {
-      setCategories([...categories, name]);
-    }
-  };
+  //   if (categories.indexOf(name) === -1) {
+  //     setCategories([...categories, name]);
+  //   }
+  // };
 
   return (
     <Fragment>
       <h2>Gift Expert App</h2>
-      <hr />
+      <AddCategory />
 
-      <button
-        onClick={handleAdd}
-      >
-        Agregar
-      </button>
+      <hr />
 
       <ol>
         { categories.map((category) => <li key={ category }>{ category }</li>) }

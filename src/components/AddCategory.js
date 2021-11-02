@@ -17,6 +17,7 @@ export const AddCategory = ({ setCategories }) => {
         if (inputValue.length > 2) {
             // We can use the previos data in categories only passing the setCategory function
             setCategories(categories => [...categories, inputValue]);
+            setInputValue('');
         }
     }
 

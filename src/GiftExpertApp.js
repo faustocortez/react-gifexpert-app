@@ -1,16 +1,14 @@
 import React, { Fragment, useState } from "react";
 import { AddCategory } from './components/AddCategory'
+import { GifGrid } from "./components/GifGrid";
 
 
 const GiftExpertApp = () => {
-  const [categories, setCategories] = useState([
-    'Attack On Titan',
-    'Demon Slayer',
-    'The Seven Deadly Sins'
-  ]);
+  const [categories, setCategories] = useState(['Attack On Titan']);
 
+
+  
   // const handleAdd = (name) => {
-    
   //   if (categories.indexOf(name) === -1) {
   //     setCategories([...categories, name]);
   //   }
@@ -24,7 +22,12 @@ const GiftExpertApp = () => {
       <hr />
 
       <ol>
-        { categories.map((category) => <li key={ category }>{ category }</li>) }
+        { categories.map((category) => (
+          <GifGrid
+            key={ category }
+            category={ category }
+          />
+        )) }
       </ol>
     </Fragment>
   )

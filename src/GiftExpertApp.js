@@ -9,8 +9,7 @@ const GiftExpertApp = () => {
     'The Seven Deadly Sins'
   ]);
 
-  // const handleAdd = () => {
-  //   const name = getRandomAnime();
+  // const handleAdd = (name) => {
     
   //   if (categories.indexOf(name) === -1) {
   //     setCategories([...categories, name]);
@@ -20,7 +19,7 @@ const GiftExpertApp = () => {
   return (
     <Fragment>
       <h2>Gift Expert App</h2>
-      <AddCategory />
+      <AddCategory setCategories={ setCategories }/>
 
       <hr />
 

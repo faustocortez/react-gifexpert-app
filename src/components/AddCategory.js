@@ -1,8 +1,9 @@
 import React, { useState } from 'react'
+import PropTypes  from 'prop-types';
 
-export const AddCategory = () => {
+export const AddCategory = ({ setCategories }) => {
     
-    const [inputValue, setInputValue] = useState('Hola mundo');
+    const [inputValue, setInputValue] = useState(''); // initialze value to aviod undefinied
     
     const handleInputChange = (e) => {
         const text = e.target.value;
@@ -11,6 +12,12 @@ export const AddCategory = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
+        
+
+        if (inputValue.length > 2) {
+            // We can use the previos data in categories only passing the setCategory function
+            setCategories(categories => [...categories, inputValue]);
+        }
     }
 
     return (
@@ -22,4 +29,8 @@ export const AddCategory = () => {
             />
         </form>
     )
+}
+
+AddCategory.propTypes = {
+    setCategories: PropTypes.func.isRequired,
 }

@@ -5,8 +5,6 @@ import { GifGrid } from "./components/GifGrid";
 
 const GiftExpertApp = () => {
   const [categories, setCategories] = useState(['Attack On Titan']);
-
-
   
   // const handleAdd = (name) => {
   //   if (categories.indexOf(name) === -1) {

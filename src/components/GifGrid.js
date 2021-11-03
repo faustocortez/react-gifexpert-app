@@ -1,6 +1,15 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 
 export const GifGrid = ({ category }) => {
+
+    const [images, setImages] = useState([]);
+
+    // component did mount in react classes
+    // the second parameter "[]" is a list of dependencies
+    // if [] equal to one execution
+    useEffect(() => {
+        getGifs();
+    }, [])
 
     const getGifs = async() => {
         const url = 'https://api.giphy.com/v1/gifs/search?api_key=LorHcp1hTRLEIFFnzCsCcrXK0nOAS0Ux&q=Rick+and+Morty&limit=10';
@@ -20,14 +29,13 @@ export const GifGrid = ({ category }) => {
             }
         })
 
-        return gifs;
+        setImages(gifs);
     }
-
-    getGifs();
 
     return (
         <div>
             <h3>{ category }</h3>
+
         </div>
     )
 }

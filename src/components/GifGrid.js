@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import { GifGridItem } from './GifGridItem';
 
 export const GifGrid = ({ category }) => {
 
@@ -9,7 +10,7 @@ export const GifGrid = ({ category }) => {
     // if [] equal to one execution
     useEffect(() => {
         getGifs();
-    }, [])
+    }, []);
 
     const getGifs = async() => {
         const url = 'https://api.giphy.com/v1/gifs/search?api_key=LorHcp1hTRLEIFFnzCsCcrXK0nOAS0Ux&q=Rick+and+Morty&limit=10';
@@ -29,13 +30,21 @@ export const GifGrid = ({ category }) => {
             }
         })
 
+        console.log(gifs);
         setImages(gifs);
     }
 
     return (
         <div>
             <h3>{ category }</h3>
-
+            { 
+                images.map( img => (    
+                    <GifGridItem
+                        key={ img.id }
+                        { ...img }
+                    />
+                ))
+            }
         </div>
     )
 }

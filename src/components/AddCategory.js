@@ -14,7 +14,7 @@ export const AddCategory = ({ setCategories }) => {
         e.preventDefault();
         
 
-        if (inputValue.length > 2) {
+        if (inputValue.trim().length > 2) {
             // We can use the previos data in categories only passing the setCategory function
             setCategories(categories => [inputValue, ...categories]);
             setInputValue('');
@@ -23,6 +23,7 @@ export const AddCategory = ({ setCategories }) => {
 
     return (
         <form onSubmit={ handleSubmit }>
+            <p> { inputValue } </p>
             <input
                 type="text"
                 onChange={ handleInputChange }

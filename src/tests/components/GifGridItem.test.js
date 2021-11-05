@@ -1,6 +1,6 @@
 import react from 'react';
 import { shallow } from 'enzyme';
-import { GifGridItem } from '../components/GifGridItem';
+import { GifGridItem } from '../../components/GifGridItem';
 
 
 describe('Pruebas del componente GifGridItem', () => {
